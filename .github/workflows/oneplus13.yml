@@ -127,7 +127,7 @@ jobs:
           cd kernel_platform
 
           # Copy SUSFS patches
-          cp ../SukiSU_patch/50_add_susfs_in_gki-android15-6.6.patch ./common/
+          cp ../susfs4ksu/kernel_patches/50_add_susfs_in_gki-${{ github.event.inputs.ANDROID_VERSION }}-${{ github.event.inputs.KERNEL_VERSION }}.patch ./common/
           cp ../susfs4ksu/kernel_patches/fs/* ./common/fs/
           cp ../susfs4ksu/kernel_patches/include/linux/* ./common/include/linux/
 
@@ -137,7 +137,7 @@ jobs:
           
           echo "正在给内核打susfs补丁"
           cd ./common
-          patch -p1 < 50_add_susfs_in_gki-android15-6.6.patch || true
+          patch -p1 < 50_add_susfs_in_gki-${{ github.event.inputs.ANDROID_VERSION }}-${{ github.event.inputs.KERNEL_VERSION }}.patch || true
           rm -rf ./fs/namespace.c
           rm -rf ./fs/namespace.c.rej
           cp ../../SukiSU_patch/namespace.c ./fs
