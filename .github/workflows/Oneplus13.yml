@@ -25,7 +25,7 @@ on:
       KERNEL_NAME:
         description: "修改内核名称"
         required: true
-        default: '-android15-OKI-YwY'
+        default: '-android15-8-o-g4c231c990593-4k'
       kernelsu_variant:
         description: "选择 KSU"
         required: true
